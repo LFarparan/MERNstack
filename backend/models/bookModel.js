@@ -15,7 +15,7 @@ const bookSchema = new mongoose.Schema({
         required: true
 
     },
-    publishDate: {
+    publishYear: {
         type: Number,
         required: true,
     }

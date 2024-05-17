@@ -4,6 +4,7 @@ import 'dotenv/config';
 import bookRouter from './routes/bookRoutes.js'
 
 const app = express()
+app.use(express.json());  
 
 app.use('/book', bookRouter )
 
