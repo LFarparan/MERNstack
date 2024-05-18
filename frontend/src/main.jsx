@@ -8,6 +8,7 @@ import CreateBook from './pages/CreateBook.jsx'
 import DisplayBook from './pages/DisplayBook.jsx'
 import EditBook from './pages/EditBook.jsx'
 import DeleteBook from './pages/DeleteBook.jsx'
+import DefaultDisplay from './component/DefaultDisplay.jsx'
 
 
 const router = createBrowserRouter([
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
     path: '/books',
     element: <Home/>,
     children: [ 
+      {
+        path: '/books',
+        element: <DefaultDisplay/>
+      },
       {
         path: '/books/display/:bookId',
         element: <DisplayBook />
