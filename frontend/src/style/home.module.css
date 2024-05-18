@@ -1,0 +1,92 @@
+h2{
+    font-size: 22px;
+    margin-left: 2.5rem;
+    margin-top: 3rem;
+}
+
+.noStyle{
+    text-decoration: none;
+    color: inherit;
+}
+
+.notecollection{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem 2rem;
+    border: 1px solid yellow;
+    margin: 0px 5vw
+}
+
+.display, .showbooks {
+    border: 1px solid; 
+    max-height: 75vh;
+    min-height: 75vh;
+    transition: flex-basis 0.3s ease; 
+}
+
+.display {
+    border-color: green;
+    flex: 2 1 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notecon{
+    border: 1px solid black;
+    width: max(550px, 80%);
+    margin: 5px;
+    padding: 10px;
+    min-height: 55vh;
+    min-height: 55vh;
+}
+
+.showbooks {
+    border-color: rgb(0, 0, 216);
+    padding: .3rem;
+    flex: 1 1 300px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+@media (max-width: 900px) {
+    .display, .showbooks {
+        flex: 1 1 100%; /* Equal width when wrapped */
+    }
+}
+
+
+
+
+
+.bookcon{
+    border: 1px solid red;
+    padding: 15px;
+    margin: 5px;
+    width: max(200px, 95%);
+    border-radius: 20px;
+}
+
+.bookcon:hover{
+    background-color: hsla(184, 100%, 81%, 0.3);
+}
+
+
+
+.booktitle{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.bookdetails{
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.bookdescription{
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+    font-weight: 400;
+}

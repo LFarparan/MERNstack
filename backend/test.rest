@@ -2,23 +2,23 @@ POST http://localhost:3000/book
 Content-Type: application/json
 
 {
-    "title": "How to be You po", 
-    "author": "Leonard",
-    "description": "A book about revenge and temptations",
-    "publishYear": 2007
+    "title": "IMSAD PTSD", 
+    "author": "Naomi",
+    "description": "Fighting lang pooo",
+    "color": "white"
 }
 
 ###
 GET http://127.0.0.1:3000/book
 
 ###
-GET http://127.0.0.1:3000/book/66470cea76cf483ad1e07240
+GET http://127.0.0.1:3000/book/
 
 ###
-DELETE http://127.0.0.1:3000/book/66470cea76cf483ad1e07240
+DELETE http://127.0.0.1:3000/book/66483cc80ce84b2bdc7d39fc
 
 ###
-PATCH http://localhost:3000/book/66471637c3b9dd1c82a0f626
+PATCH http://localhost:3000/book/
 Content-Type: application/json
 
 {
@@ -33,5 +33,5 @@ Content-Type: application/json
     "title": "Farpsy Lusty", 
     "author": "Leonard",
     "description": "A book about revenge and temptations",
-    "publishYear": 2007
+    "color": "white"
 }

@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Home from './components/Home.jsx'
-import CreateBook from './components/CreateBook.jsx'
-import Displaybook from './components/DisplayBook.jsx'
-import Editbook from './components/EditBook.jsx'
-import DeleteBook from './components/DeleteBook.jsx'
-import DisplayBook from './components/DisplayBook.jsx'
+import Home from './pages/Home.jsx'
+import CreateBook from './pages/CreateBook.jsx'
+import DisplayBook from './pages/DisplayBook.jsx'
+import EditBook from './pages/EditBook.jsx'
+import DeleteBook from './pages/DeleteBook.jsx'
+
 
 const router = createBrowserRouter([
   {
@@ -17,23 +17,25 @@ const router = createBrowserRouter([
   },
   {
     path: '/books',
-    element: <Home/>
-  },
-  {
-    path: '/books/create',
-    element: <CreateBook/>
-  },
-  {
-    path: '/books/display/:id',
-    element: <DisplayBook/>
-  },
-  {
-    path: '/books/edit/:id',
-    element: <Editbook/>
-  },
-  {
-    path: '/books/delete/:id',
-    element: <DeleteBook/>
+    element: <Home/>,
+    children: [ 
+      {
+        path: '/books/display/:bookId',
+        element: <DisplayBook />
+      },
+      {
+        path: '/books/create',
+        element: <CreateBook/>
+      },
+      {
+        path: '/books/edit/:id',
+        element: <EditBook/>
+      },
+      {
+        path: '/books/delete/:id',
+        element: <DeleteBook/>
+      }
+    ]
   }
 ])
 

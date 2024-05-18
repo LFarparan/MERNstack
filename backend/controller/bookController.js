@@ -25,12 +25,12 @@ const get_book = async (req, res) => {
 const create_book = async(req, res) => {
     try {
         if ( !req.body.title || !req.body.author || 
-            !req.body.description || !req.body.publishYear  ){
-            res.status(400).send('Send the following fields: title, author, publishYear, description')
+            !req.body.description || !req.body.color  ){
+            res.status(400).send('Send the following fields: title, author, color, description')
         }
         const newBook = {
             title: req.body.title, author: req.body.author,
-            description: req.body.description, publishYear: req.body.publishYear
+            description: req.body.description, color: req.body.color
         }
         const book = await Book.create(newBook)
         return res.status(201).send(book)
@@ -58,8 +58,8 @@ const delete_book = async (req, res) => {
 const modify_book = async (req, res) => {
     try {
          if ( !req.body.title || !req.body.author || 
-            !req.body.description || !req.body.publishYear  ){
-            return res.status(400).send('Send the following field: title, author, publishYear, description')
+            !req.body.description || !req.body.color  ){
+            return res.status(400).send('Send the following field: title, author, color, description')
          }
          const book = await Book.findByIdAndUpdate(req.params.id, req.body)
          if (!book){
