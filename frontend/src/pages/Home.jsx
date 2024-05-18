@@ -14,14 +14,13 @@ export default function Home(){
     async function getBooks(){
       const book = await axios.get('http://localhost:3000/book')
       try {
-        console.log(book.data.data)
         setBooks(book.data.data)
       } catch (error) {
         console.log(error)
       }
     }
     getBooks()
-  }, [])
+  }, [isDefault])
 
   return (
     <>
@@ -29,7 +28,7 @@ export default function Home(){
       <div className={homeStyle.notecollection}>
       <div className={homeStyle.display}>
         <div className={homeStyle.notecon}>
-          <BookContext.Provider value={{books, setBooks}}>
+          <BookContext.Provider value={{books, setBooks, setIsDefault}}>
             {(isDefault) ? <DefaultDisplay/> : <Outlet/>}
           </BookContext.Provider>
         </div>

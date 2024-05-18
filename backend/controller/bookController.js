@@ -3,13 +3,14 @@ import { Book } from '../models/bookModel.js';
 // get ALL
 const get_all_books = async (req, res) => {
    try {
-        const allBooks = await Book.find({})
+        const allBooks = await Book.find({}).sort({ createdAt: -1 })
         return res.status(200).json({ count : allBooks.length, data: allBooks})
    } catch (error) {
         console.log(error)
-        res.status(500).send({ message: error.message })
+        return res.status(500).send({ message: error.message })
    }
 }
+
 // get ONE
 const get_book = async (req, res) => {
     try {
@@ -17,7 +18,7 @@ const get_book = async (req, res) => {
          return res.status(200).json(book)
     } catch (error) {
          console.log(error)
-         res.status(500).send({ message: error.message })
+         return res.status(500).send({ message: error.message })
     }
  }
 
@@ -26,7 +27,7 @@ const create_book = async(req, res) => {
     try {
         if ( !req.body.title || !req.body.author || 
             !req.body.description || !req.body.color  ){
-            res.status(400).send('Send the following fields: title, author, color, description')
+                return res.status(400).send('Send the following fields: title, author, color, description')
         }
         const newBook = {
             title: req.body.title, author: req.body.author,
@@ -36,7 +37,7 @@ const create_book = async(req, res) => {
         return res.status(201).send(book)
     } catch (error) {
         console.log(error)
-        res.status(500).send({ message: error.message })
+        return res.status(500).send({ message: error.message })
     }
 }
 
@@ -50,7 +51,7 @@ const delete_book = async (req, res) => {
         return res.status(200).send({message: 'Book has been deleted'})
     } catch (error) {
         console.log(error)
-        res.status(500).send({ message: error.message })
+        return res.status(500).send({ message: error.message })
     }
  }
 
@@ -66,10 +67,10 @@ const modify_book = async (req, res) => {
             return res.status(404).json({message: 'Book cannot be found'})
          }
 
-         return res.status(200).send({message: 'Book has been Updated'})
+         return res.status(200).send(book)
     } catch (error) {
          console.log(error)
-         res.status(500).send({ message: error.message })
+         return res.status(500).send({ message: error.message })
     }
  }
  const modify_field = async (req, res) => {

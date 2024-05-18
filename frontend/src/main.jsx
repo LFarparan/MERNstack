@@ -28,15 +28,15 @@ const router = createBrowserRouter([
         element: <CreateBook/>
       },
       {
-        path: '/books/edit/:id',
+        path: '/books/edit/:bookId',
         element: <EditBook/>
       },
       {
-        path: '/books/delete/:id',
+        path: '/books/delete/:bookId',
         element: <DeleteBook/>
       }
     ]
-  }
+  },
 ])
 
 
