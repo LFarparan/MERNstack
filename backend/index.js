@@ -21,4 +21,5 @@ mongo.connect(process.env.MERNdb)
     })
 })
 .catch((err) => { console.log(err) })
- 
+
+export default app 
