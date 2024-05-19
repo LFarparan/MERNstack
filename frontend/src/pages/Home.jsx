@@ -10,7 +10,7 @@ export default function Home(){
 
   useEffect(() => {
     async function getBooks(){
-      const book = await axios.get('http://localhost:3000/book')
+      const book = await axios.get('https://mern-book-eight.vercel.app/book')
       try {
         setBooks(book.data.data)
       } catch (error) {

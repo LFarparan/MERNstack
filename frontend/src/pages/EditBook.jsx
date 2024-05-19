@@ -33,8 +33,8 @@ export default function EditBook(){
         color: color,
       }
       try {
-        const book = await axios.patch('http://localhost:3000/book/'+ bookId, registerbook);
-        const newbook = await axios.get('http://localhost:3000/book')
+        const book = await axios.patch('https://mern-book-eight.vercel.app/book/'+ bookId, registerbook);
+        const newbook = await axios.get('https://mern-book-eight.vercel.app/book')
         setBooks(newbook.data.data)
         navigate('../display/' + book.data.book._id)
       } catch (error) {

@@ -21,8 +21,8 @@ const CreateBook = () => {
         color: color,
       }
       try {
-        const book = await axios.post('http://localhost:3000/book', registerbook);
-        const newbook = await axios.get('http://localhost:3000/book')
+        const book = await axios.post('https://mern-book-eight.vercel.app/book', registerbook);
+        const newbook = await axios.get('https://mern-book-eight.vercel.app/book')
         setBooks(newbook.data.data)
         titleRef = null
         authorRef = null 

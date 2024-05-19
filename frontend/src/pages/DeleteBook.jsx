@@ -18,8 +18,8 @@ const DeleteBook = () => {
 
   async function Yass(){
     try {
-      const delbook = await axios.delete('http://localhost:3000/book/'+ params.bookId)
-      const newbook = await axios.get('http://localhost:3000/book')
+      const delbook = await axios.delete('https://mern-book-eight.vercel.app/book/'+ params.bookId)
+      const newbook = await axios.get('https://mern-book-eight.vercel.app/book')
       setBooks(newbook.data.data)
       navigate('../')
     } catch (error) {
