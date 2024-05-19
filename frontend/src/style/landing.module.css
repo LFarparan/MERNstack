@@ -1,0 +1,43 @@
+.body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--brown);
+    width: clamp(500px,60vw, 700px);
+    min-height: 50vh;
+    margin: auto;
+    margin-top: 15vh;
+    border-radius: 20px;
+
+}
+
+.bigcrane{
+    width: max(250px, 20vw);
+}
+
+.textcon{
+    padding: max(5px, 1vw) max(5px, 1vw) max(5px, 1vw) 0px;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max(400px, 30vw);
+}
+p.sitedetails{
+    text-align: center;
+    color: var(--white);
+    padding: 10px;
+}
+
+.goto{
+    padding: 7px 12px;
+    margin-top: 1rem;
+    border-radius: 10px;
+    border: 2px solid var(--white);
+    background-color: var(--brown);
+    color: var(--white);
+    font-size: 15px;
+}
+
+.goto:hover{
+    background-color: var(--brownlight);
+}

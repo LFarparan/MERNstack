@@ -1,9 +1,3 @@
-h2{
-    font-size: 22px;
-    margin-left: 2.5rem;
-    margin-top: 3rem;
-}
-
 .noStyle{
     text-decoration: none;
     color: inherit;
@@ -11,59 +5,84 @@ h2{
 
 .notecollection{
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     padding: 1rem 2rem;
-    border: 1px solid yellow;
-    margin: 0px 5vw
+    border: .5px solid var(--brown);
+    border-radius: 20px;
+    background-color: var(--brownlight);
+    margin: auto;
+    max-width: 1000px;
+    gap: 5px;
+}
+
+h2{
+    font-size: 22px;
+    text-align: center;
+    margin: 1rem 0px .5rem 2.5rem;
+    font-family: "Permanent Marker", cursive;
+    color: var(--browndark);
+    transform: translateX(-25vw);
 }
 
 .display, .showbooks {
     border: 1px solid; 
-    max-height: 75vh;
-    min-height: 75vh;
+    max-height: 70vh;
+    min-height: 70vh;
     transition: flex-basis 0.3s ease; 
 }
 
 .display {
-    border-color: green;
+    background-color: #fff9ee;
     flex: 2 1 600px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 0px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .notecon{
-    border: 1px solid black;
-    width: max(550px, 80%);
-    margin: 5px;
+    border: 1px solid var(--brownlight);
+    border-top-left-radius: 20px;
+    padding: 20px;
+    width: max(550px, 70%);
+    margin: 20px;
     min-height: 55vh;
     min-height: 55vh;
 }
 
 .showbooks {
-    border-color: rgb(0, 0, 216);
+    padding: 1.5vh;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #fff9ee;
+}
+
+.showbookscon{
+    background-color: #e6e3de;
+    border: 0px;
     padding: .3rem;
     flex: 1 1 300px;
     overflow-x: hidden;
     overflow-y: scroll;
+    max-height: 67vh;
+    min-height: 67vh;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 500px) {
     .display, .showbooks {
-        flex: 1 1 100%; /* Equal width when wrapped */
+        flex: 1 1 100%;
     }
 }
 
 
-
-
-
 .bookcon{
-    border: 1px solid red;
+    border: 1px solid var(--brownlight);
     padding: 15px;
     margin: 5px;
-    width: max(200px, 95%);
+    width: max(225px, 95%);
+    max-width: 250px;
     border-radius: 20px;
 }
 
