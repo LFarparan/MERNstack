@@ -1,9 +1,12 @@
 import express from "express";
 import mongo from 'mongoose';
-import 'dotenv/config';
 import bookRouter from './routes/bookRoutes.js'
 import cors from 'cors'
 
+import { config } from 'dotenv';
+if (process.env.NODE_ENV !== 'production') {
+  config();
+}
 
 const app = express()
 app.use(express.json());  
