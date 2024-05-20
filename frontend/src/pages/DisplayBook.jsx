@@ -1,6 +1,10 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { BookContext } from './Home';
 import { useParams, Link } from "react-router-dom"
+import style from '../style/display.module.css'
+import addbtn from '../assets/note-plus.svg'
+import editbtn from '../assets/book-edit.svg'
+
 
 export default function DisplayBook(){
   const {books, setBooks} = useContext(BookContext)
@@ -9,28 +13,41 @@ export default function DisplayBook(){
   const params = useParams()
 
 
-  useEffect(()=>{
-    const preview = books.find((book) => book._id === params.bookId);
-    setColor(preview.color)
-    setDisplay(preview)
-  }, [display, params.bookId])
+  useEffect(() => {
+    if (books && books.length > 0) {
+      const preview = books.find((book) => book._id === params.bookId);
+      if (preview) {
+        setColor(preview.color);
+        setDisplay(preview);
+      }
+    }
+  }, [books, params.bookId]);
 
   if (!display) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div style={{ backgroundColor: color}}>
-        <div className='controls'>
-          <Link to='../create'> ADD </Link>
-          <Link to={`../edit/${params.bookId}`}> EDIT </Link>
+    <div style={{ backgroundColor: color}} className={style.displaycontainer}>
+        <div className={style.navigation}>
+          <Link to={`../edit/${params.bookId}`}  className={style.editbutton}> 
+            <p className={style.edithover}> EDIT </p>
+            <img src={editbtn} alt="edit-button" className={style.icon} />
+          </Link>
+          <Link to='../create' className={style.addbutton}> 
+            <p className={style.addhover}> ADD NEW </p>
+            <img src={addbtn} alt="add-button" className={style.icon}/>
+          </Link>
         </div>
-        <div>
-          <h1>{display.title}</h1>
-          <p> by {display.author}</p>
-          <p>{display.description}</p>
-      </div>
-      
+        <div className={style.displayOne}>
+          <div>
+            <h1>{display.title}</h1>
+            <p> by {display.author}</p>
+            <br />
+            <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               {display.description}</p>
+          </div>
+        </div>
     </div>
   )
 }

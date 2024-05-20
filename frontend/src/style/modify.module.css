@@ -1,11 +1,55 @@
 button.color{
     width: 20px;
     height: 20px;
-    margin: 3px;
+    margin: 0 3px;
     border-radius: 2%;
 }
 
 button.savebtn{
     width: 50px;
     height: 30px;
+}
+
+#title, #author, #description{
+    width: 400px;
+    padding: 3px;
+    font-size: 15px;
+}
+
+.areadescription{
+    width: 400px;
+    resize: none;
+    height: 120px;
+}
+
+.formcon{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55vh;
+}
+
+button.savebtn{
+    margin: 5px 40%;
+    min-width: 100px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    font-weight: 600;
+    color: rgb(61, 61, 61);
+}
+
+button.savebtn:hover{
+    background-color: rgb(50, 50, 50);
+    color: var(--white);
+}
+
+p.colorlabel{
+    margin-top: 10px 5px 5px 5px;
+}
+
+.controlPanels{
+    display: flex;
+    margin-top: 5px;
+    width: 100px;
 }

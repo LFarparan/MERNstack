@@ -1,0 +1,31 @@
+.displaycontainer{
+    padding: 25px 0 0 40px;
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+}
+
+.navigation{
+    margin-right: auto;
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+}
+
+.addbutton, .editbutton{
+    margin: 10px;
+    text-decoration: none;
+    color: rgb(93, 93, 93);
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    filter: invert(0%) sepia(2%) saturate(538%) hue-rotate(22deg) brightness(113%) contrast(81%);
+}
+
+.addbutton:hover, .editbutton:hover{
+    filter: invert(50%) sepia(2%) saturate(538%) hue-rotate(22deg) brightness(113%) contrast(81%);
+}
+
+.icon{
+    width: 30px;
+}

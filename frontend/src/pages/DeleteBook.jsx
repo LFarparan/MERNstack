@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, {useEffect, useContext, useState} from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { BookContext } from './Home';
+import style from '../style/component.module.css'
 
 
 const DeleteBook = () => {
@@ -11,9 +12,12 @@ const DeleteBook = () => {
   const navigate = useNavigate()
 
   useEffect(()=>{
-    const preview = books.find((book) => book._id === params.bookId);
-    setColor(preview.color)
-  }, [])
+    if (books && books.length > 0){
+      const preview = books.find((book) => book._id === params.bookId);
+      if (preview)
+        setColor(preview.color)
+    }
+  }, [books, params.bookId])
 
 
   async function Yass(){
@@ -32,11 +36,11 @@ const DeleteBook = () => {
   }
 
   return (
-    <div style={{backgroundColor: color}}>
-      <p className='deleteprompt'> Are you sure you want to DELETE this Book? </p>
-      <div>
-        <button onClick={Yass}> YES </button>
-        <button onClick={OhNo}> NO </button>
+    <div  className={style.deletecon} style={{backgroundColor: color}}>
+      <p className={style.deleteprompt}> Are you sure you want to DELETE this Book? </p>
+      <div className={style.deletechoices}>
+        <button className={style.deleteyes} onClick={Yass}> YES </button>
+        <button className={style.deleteno} onClick={OhNo}> NO </button>
       </div>
     </div>
   )

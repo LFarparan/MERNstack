@@ -13,6 +13,7 @@
     margin: auto;
     max-width: 1000px;
     gap: 5px;
+    min-width: 1000px;
 }
 
 h2{
@@ -40,16 +41,17 @@ h2{
     border: 0px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    min-width: 600px;
 }
 
 .notecon{
     border: 1px solid var(--brownlight);
-    border-top-left-radius: 20px;
-    padding: 20px;
+    border-top-left-radius: 10%;
     width: max(550px, 70%);
     margin: 20px;
     min-height: 55vh;
     min-height: 55vh;
+    overflow: hidden;
 }
 
 .showbooks {
@@ -57,6 +59,7 @@ h2{
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     background-color: #fff9ee;
+    min-width: 300px;
 }
 
 .showbookscon{
@@ -107,4 +110,8 @@ h2{
     padding-left: 10px;
     font-size: 14px;
     font-weight: 400;
+}
+
+.label{
+    
 }

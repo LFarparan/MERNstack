@@ -11,3 +11,15 @@
 body{
     background-color: var(--white);
 }
+
+#title, #author, #description{
+    width: 400px;
+    padding: 3px;
+    font-size: 15px;
+}
+
+#areadescription{
+    width: 400px;
+    resize: none;
+    height: 120px;
+}

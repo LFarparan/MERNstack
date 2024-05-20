@@ -1,4 +1,4 @@
-import React, {useState, useContext, useRef} from 'react'
+import React, {useState, useContext, useRef, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import style from '../style/modify.module.css'
 import axios from 'axios'
@@ -13,9 +13,11 @@ const CreateBook = () => {
   let descriptionRef = useRef(null)
   
 
+
   async function saveAndRedirect(){
-    if (titleRef || authorRef || descriptionRef){
-      const registerbook = {title: titleRef.current.value,
+    if (titleRef.current.value && authorRef.current.value && descriptionRef.current.value){
+      const registerbook = {
+        title: titleRef.current.value,
         author: authorRef.current.value,
         description: descriptionRef.current.value,
         color: color,
@@ -24,9 +26,9 @@ const CreateBook = () => {
         const book = await axios.post('https://mern-book-eight.vercel.app/book', registerbook);
         const newbook = await axios.get('https://mern-book-eight.vercel.app/book')
         setBooks(newbook.data.data)
-        titleRef = null
-        authorRef = null 
-        descriptionRef = null
+        titleRef.current.value = '';
+        authorRef.current.value = '';
+        descriptionRef.current.value = '';
         navigate('../display/' + book.data._id)
       } catch (error) {
         console.log(error)
@@ -36,21 +38,24 @@ const CreateBook = () => {
   }
 
   return (
-    <div className='formcon' style={{backgroundColor: color}}>
-      <label htmlFor="title"> Title: </label> <br/>
-      <input type="text" ref={titleRef} name="title" id="title"/><br/>
-      <label htmlFor="author"> Author: </label><br/>
-      <input type="text" ref={authorRef} name="author" id="author" /><br/>
-      <label htmlFor="desciption"> Description: </label><br/>
-      <textarea ref={descriptionRef} name="description" id="Description" /><br/>
-      <div className='colorPanel'>
-        <button onClick={()=>setColor('#f7f7f7')} className={style.color} style={{backgroundColor:'#f7f7f7'}}></button>
-        <button onClick={()=>setColor('#e79beb')} className={style.color} style={{backgroundColor:'#e79beb'}}></button>
-        <button onClick={()=>setColor('#91cff2')} className={style.color} style={{backgroundColor:'#91cff2'}}></button>
-        <button onClick={()=>setColor('#91f2b9')} className={style.color} style={{backgroundColor:'#91f2b9'}}></button>
-        <button onClick={()=>setColor('#f2ed91')} className={style.color} style={{backgroundColor:'#f2ed91'}}></button>
+    <div className={style.formcon} style={{backgroundColor: color}}>
+      <div>
+        <label htmlFor="title" className='label'> Title: </label> <br/>
+        <input type="text" ref={titleRef} name="title" id="title"/><br/>
+        <label htmlFor="author"> Author: </label><br/>
+        <input type="text" ref={authorRef} name="author" id="author" /><br/>
+        <label htmlFor="desciption"> Description: </label><br/>
+        <textarea ref={descriptionRef} className={style.areadescription} name="description" id="description" /><br/>
+        <p className={style.colorlabel}> Color: </p>
+        <div>
+          <button onClick={()=>setColor('#f7f7f7')} className={style.color} style={{backgroundColor:'#f7f7f7'}}></button>
+          <button onClick={()=>setColor('#e79beb')} className={style.color} style={{backgroundColor:'#e79beb'}}></button>
+          <button onClick={()=>setColor('#91cff2')} className={style.color} style={{backgroundColor:'#91cff2'}}></button>
+          <button onClick={()=>setColor('#91f2b9')} className={style.color} style={{backgroundColor:'#91f2b9'}}></button>
+          <button onClick={()=>setColor('#f2ed91')} className={style.color} style={{backgroundColor:'#f2ed91'}}></button>
+        </div>
+        <button className={style.savebtn} onClick={saveAndRedirect}> SAVE </button>
       </div>
-      <button className={style.savebtn} onClick={saveAndRedirect}> SAVE </button>
     </div>
   )
 }
