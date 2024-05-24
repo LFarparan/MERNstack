@@ -31,7 +31,7 @@ export default function Home(){
   return (
     <>
       <Header/>
-      <h2>Media Collection</h2>
+      <h2>Recommendations</h2>
       <div className={homeStyle.notecollection}>
       <div className={homeStyle.display}>
         <div className={homeStyle.notecon}>

@@ -3,10 +3,10 @@
     margin: 0px;
     padding: 0px;
     font-family: "Lato", sans-serif;
-    --white: #F8F4E1;
-    --brownlight: #AF8F6F;
-    --brown: #74512D;
-    --browndark: #543310
+    --white: #FAF6F0;
+    --brownlight: #8C6A5D;
+    --brown: #5F374B;
+    --browndark: #430A5D;
 }
 body{
     background-color: var(--white);

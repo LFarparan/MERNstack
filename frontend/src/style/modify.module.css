@@ -20,6 +20,7 @@ button.savebtn{
     width: 400px;
     resize: none;
     height: 120px;
+    padding: 10px;
 }
 
 .formcon{
